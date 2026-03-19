@@ -64,7 +64,78 @@ export const CATEGORIES = [
   },
 ];
 
-export const PRODUCTS = [
+export type ProductSpecs = {
+  power?: string;
+  battery?: string;
+  range?: string;
+  speed?: string;
+  weight?: string;
+  motor?: string;
+  chargeTime?: string;
+  brake?: string;
+  tire?: string;
+  [key: string]: string | undefined;
+};
+
+export type Product = {
+  id: string;
+  category: string;
+  name: string;
+  badge?: string;
+  image: string;
+  images?: string[];
+  price: string | number;
+  priceNote?: string;
+  subtitle?: string;
+  specs: ProductSpecs;
+  highlights: string[];
+  sellingPoints?: string[];
+  description: string;
+  isHot: boolean;
+};
+
+export const PRODUCTS: Product[] = [
+  {
+    id: "jnt-s15",
+    category: "motorcycle",
+    name: "JNT-S15 รถไฟฟ้า",
+    badge: "รุ่นแนะนำ",
+    image: "/images/jnt-s15-main.jpg",
+    images: [
+      "/images/jnt-s15-main.jpg",
+      "/images/jnt-s15-spec.jpg",
+      "/images/jnt-s15-colors.jpg",
+    ],
+    price: 39900,
+    subtitle: "รวมจดทะเบียน (ไม่รวมส่ง)",
+    priceNote: "ผ่อน 0% ได้ | ส่งทั่วประเทศ | มีบริการหลังการขาย",
+    highlights: [
+      "มอเตอร์ 850W แรง ประหยัดไฟ",
+      "แบตเตอรี่ 48V 12Ah",
+      "วิ่งได้ไกลสูงสุด 40 กม./ชาร์จ",
+      "ความเร็วสูงสุด 45 กม./ชม.",
+      "มี Smart Key ใช้งานง่าย",
+      "เหมาะกับใช้งานในเมือง / ส่งของ",
+    ],
+    specs: {
+      battery: "48V 12Ah",
+      motor: "850W",
+      range: "40 กม./ชาร์จ",
+      speed: "45 กม./ชม.",
+      chargeTime: "5-6 ชั่วโมง",
+      brake: "ดรัมเบรก หน้า-หลัง",
+      tire: "Tubeless 14x2.50",
+    },
+    sellingPoints: [
+      "ประหยัดค่าน้ำมัน",
+      "ดูแลง่าย",
+      "เหมาะกับใช้งานทุกวัน",
+      "รับประกัน + มีบริการหลังการขาย",
+    ],
+    description:
+      "รถไฟฟ้า JNT-S15 รุ่นใช้งานจริงในเมือง ขับง่าย ประหยัดไฟ เหมาะทั้งเดินทางประจำวันและงานส่งของระยะใกล้",
+    isHot: true,
+  },
   {
     id: "motor-2500w",
     category: "motorcycle",

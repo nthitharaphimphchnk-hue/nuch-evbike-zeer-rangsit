@@ -10,7 +10,7 @@ import { SHOP_INFO } from "@/lib/data";
 
 const TOP_LINKS = [
   { href: "/", label: "เกี่ยวกับเรา" },
-  { href: "/reviews", label: "บทความ" },
+  { href: "/blog", label: "บทความ" },
   { href: "/contact", label: "ติดต่อเรา" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -25,6 +25,7 @@ const CATEGORY_LINKS = [
 const NAV_LINKS = [
   { href: "/", label: "หน้าแรก" },
   { href: "/products", label: "สินค้า" },
+  { href: "/blog", label: "บทความ" },
   { href: "/services", label: "บริการ" },
   { href: "/reviews", label: "รีวิว" },
   { href: "/contact", label: "ติดต่อ" },

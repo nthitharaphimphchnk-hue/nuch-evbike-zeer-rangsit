@@ -19,13 +19,18 @@ import Reviews from "./pages/Reviews";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import ProductDetail from "./pages/ProductDetail";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/products" component={Products} />
+      <Route path="/product/:id" component={ProductDetail} />
       <Route path="/products/:id" component={ProductDetail} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/services" component={Services} />
       <Route path="/reviews" component={Reviews} />
       <Route path="/contact" component={Contact} />

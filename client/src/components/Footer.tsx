@@ -64,6 +64,7 @@ export default function Footer() {
               {[
                 { href: "/", label: "หน้าแรก" },
                 { href: "/products", label: "สินค้าทั้งหมด" },
+                { href: "/blog", label: "บทความ" },
                 { href: "/services", label: "บริการ" },
                 { href: "/reviews", label: "รีวิวลูกค้า" },
                 { href: "/contact", label: "ติดต่อเรา" },

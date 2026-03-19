@@ -6,7 +6,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
-import { HERO_SLIDES, PRODUCTS, SERVICES, REVIEWS } from "@/lib/data";
+import { HERO_SLIDES, PRODUCTS, SERVICES, REVIEWS, SHOP_INFO } from "@/lib/data";
 import ProductCard from "@/components/ProductCard";
 import BackButton from "@/components/BackButton";
 
@@ -59,11 +59,15 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
               <div className="text-center text-white max-w-2xl px-4">
-                <h1 className="font-bold font-bold text-4xl md:text-5xl mb-4">
+                <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium mb-3">
+                  {SHOP_INFO.fullName}
+                </div>
+                <h1 className="font-bold text-4xl md:text-5xl mb-4" style={{ fontFamily: "Prompt, sans-serif" }}>
                   {slide.title}
                 </h1>
-                <p className="text-base text-lg md:text-xl mb-8 text-gray-100">
-                  {slide.subtitle}
+                <p className="text-lg md:text-xl mb-2 text-gray-100">{slide.subtitle}</p>
+                <p className="text-sm md:text-base text-white/90 mb-8">
+                  {SHOP_INFO.slogan} • {SHOP_INFO.addressShort} • {SHOP_INFO.hours}
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center">
                   <Link href="/products">
@@ -181,7 +185,7 @@ export default function Home() {
               สินค้าแนะนำ
             </h2>
             <p className="text-base text-gray-600">
-              เลือกจากสินค้าคุณภาพสูง ราคาพิเศษ
+              สินค้าหลากหลายรุ่น พร้อมให้คำปรึกษาเลือกให้เหมาะกับการใช้งาน
             </p>
           </div>
 
@@ -233,13 +237,9 @@ export default function Home() {
               </p>
             </div>
             <div className="text-center">
-              <div className="font-bold font-bold text-4xl text-pink-600 mb-2">
-                60
-              </div>
-              <p className="text-base text-gray-300">ความสุขสูงสุด</p>
-              <p className="text-base text-xs text-gray-400 mt-1">
-                เสียงเงียบ ปลอดภัย
-              </p>
+              <div className="font-bold font-bold text-4xl text-pink-600 mb-2">{SHOP_INFO.rating.toFixed(1)}</div>
+              <p className="text-base text-gray-300">คะแนนรีวิว</p>
+              <p className="text-base text-xs text-gray-400 mt-1">จากลูกค้าจริงบน Facebook</p>
             </div>
             <div className="text-center">
               <div className="font-bold font-bold text-4xl text-pink-600 mb-2">
@@ -298,7 +298,7 @@ export default function Home() {
                 </span>
               ))}
               <span className="text-base text-gray-600 ml-2">
-                5.0 (15 รีวิว)
+                {SHOP_INFO.rating.toFixed(1)} ({SHOP_INFO.reviewCount} รีวิว)
               </span>
             </div>
           </div>
@@ -346,7 +346,7 @@ export default function Home() {
             พร้อมเปลี่ยนไปรถไฟฟ้าแล้วหรือ?
           </h2>
           <p className="text-base text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            ติดต่อเจ้นุชรถไฟฟ้าวันนี้ เพื่อสอบถามข้อมูลและราคาพิเศษ
+            ติดต่อ{SHOP_INFO.name}วันนี้ เพื่อสอบถามรุ่นที่เหมาะกับคุณและรับโปรโมชันหน้าร้าน
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact">
@@ -355,10 +355,10 @@ export default function Home() {
               </a>
             </Link>
             <a
-              href="tel:0816877249"
+              href={SHOP_INFO.phoneLink}
               className="inline-flex items-center justify-center min-w-[200px] px-8 py-3 border-2 border-white text-white rounded-lg font-medium hover:bg-white/10 transition-colors"
             >
-              โทร 081-687-7249
+              โทร {SHOP_INFO.phone}
             </a>
           </div>
         </div>

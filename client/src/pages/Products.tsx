@@ -1,12 +1,11 @@
 /*
- * Products Page — Thai Premium EV Design
- * All products with category filter
+ * Products Page — Multi-product e-commerce catalog
  */
 
 import { useState } from "react";
 import { useSearch } from "wouter";
 import { Zap, Filter } from "lucide-react";
-import { PRODUCTS, CATEGORIES } from "@/lib/data";
+import { PRODUCTS, PRODUCT_CATEGORIES } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import BackButton from "@/components/BackButton";
 
@@ -21,7 +20,7 @@ export default function Products() {
       ? PRODUCTS
       : PRODUCTS.filter((p) => p.category === activeCategory);
 
-  const allCategories = [{ id: "all", name: "ทั้งหมด" }, ...CATEGORIES];
+  const allCategories = [{ id: "all", name: "ทั้งหมด" }, ...PRODUCT_CATEGORIES];
 
   return (
     <div className="min-h-screen bg-gray-50 pt-28">
@@ -29,16 +28,16 @@ export default function Products() {
         <div className="mb-6">
           <BackButton />
         </div>
-        {/* Header */}
-        <div className="mb-8">
-          <div className="inline-flex items-center gap-1.5 text-pink-600 text-xs font-medium mb-2">
+
+        <div className="mb-8 rounded-3xl bg-white border border-gray-100 shadow-sm p-6 md:p-8">
+          <div className="inline-flex items-center gap-1.5 text-[#ff2d7a] text-xs font-medium mb-2">
             <Zap size={12} /> สินค้าทั้งหมด
           </div>
-          <h1 className="text-3xl font-black text-gray-900" style={{ fontFamily: "Prompt, sans-serif" }}>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{ fontFamily: "Prompt, sans-serif" }}>
             รถไฟฟ้าทุกประเภท
           </h1>
-          <p className="text-gray-500 mt-1 text-sm">
-            มอเตอร์ไซค์ไฟฟ้า จักรยานไฟฟ้า สามล้อไฟฟ้า อะไหล่และอุปกรณ์เสริม
+          <p className="text-gray-500 mt-2 text-sm md:text-base max-w-2xl">
+            เลือกดูสินค้าจริงจากหลายรุ่น หลายหมวด เหมือน mini store พร้อมคลิกดูรายละเอียดแต่ละรุ่นได้ทันที
           </p>
         </div>
 
@@ -51,8 +50,8 @@ export default function Products() {
               onClick={() => setActiveCategory(cat.id)}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                 activeCategory === cat.id
-                  ? "bg-[#0a0a0a] text-white"
-                  : "bg-white border border-gray-200 text-gray-600 hover:border-pink-400 hover:text-pink-600"
+                  ? "bg-[#ff2d7a] text-white shadow-sm"
+                  : "bg-white border border-gray-200 text-gray-600 hover:border-[#ff2d7a] hover:text-[#ff2d7a]"
               }`}
               style={{ fontFamily: "Prompt, sans-serif" }}
             >
@@ -63,7 +62,7 @@ export default function Products() {
 
         {/* Products Grid */}
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
